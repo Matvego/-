@@ -95,6 +95,46 @@ void drawCharacterTwo (int x,int y)
 
 }
 
+void drawCloud2(int x)
+{
+    txSetColor (RGB (0, 0, 0),6);
+    txSetFillColor (RGB (255, 255, 255));
+    txEllipse(x+500-500,70,x+600-500,130);
+    txEllipse(x+610-500,70,x+710-500,130);
+    txEllipse(x+550-500,35,x+650-500,100);
+
+
+    txSetColor (RGB (0, 0, 0),6);
+    txLine (x+540-500,80,x+540-500,100);
+    txLine (x+560-500,80,x+560-500,100);
+    txLine (x+540-500,120,x+550-500,130);
+    txLine (x+560-500,120,x+550-500,130);
+    txLine (x+530-500,90,x+570-500,90);
+
+
+    txLine (x+590-500,50,x+590-500,60);
+    txLine (x+610-500,50,x+610-500,60);
+    txLine (x+590-500,70,x+600-500,80);
+    txLine (x+610-500,70,x+660-500,80);
+    txSetColor (TX_BLACK, 6);
+    txSetFillColor (RGB (215,25,33));
+    POINT bant[6] = {{x+570-500, 20}, {x+600-500, 30}, {x+620-500, 20}, {x+620-500, 40}, {x+600-500, 40}, {x+580-500, 40} };
+    txPolygon (bant, 6);
+
+
+    txLine (x+650-500,80,x+650-500,100);
+    txLine (x+670-500,80,x+670-500,100);
+    txLine (x+650-500,110,x+660-500,120);
+    txLine (x+670-500,110,x+660-500,120);
+    txSetColor (TX_BLACK, 6);
+    txSetFillColor (RGB (255,174,201));
+    POINT bant2[6] = {{x+640-500, 50}, {x+660-500, 50}, {x+680-500, 50}, {x+680-500, 70}, {x+660-500, 60}, {x+640-550, 70} };
+    txPolygon (bant2, 6);
+
+
+}
+
+
 
 int main()
     {
@@ -109,6 +149,7 @@ int main()
     int yCharacterLegs = 10;
     int xCharacterTwo = 330;
     int yCharacterTwo = 430;
+    int xCloud2 = 140;
 
 
     while (xSun<700)
@@ -236,7 +277,7 @@ int main()
         txSleep(50);
     }
 
-    xSun = 900;
+    xSun = 1000;
     ySun = 140;
     while(xSun < 1250 )
     {
@@ -246,11 +287,13 @@ int main()
         drawgrass(100);
         drawcharacter(700,yCharacter,yCharacterLegs);
         drawCharacterTwo (xCharacterTwo,yCharacterTwo);
-        txSetColor (RGB (0, 0, 0));
-        txSelectFont ("Comic Sans MS", 30);
-        txTextOut (470, 390, "Да");
+        drawCloud2 (xCloud2);
+        //txSetColor (RGB (0, 0, 0));
+        //txSelectFont ("Comic Sans MS", 30);
+        //txTextOut (470, 390, "Да");
 
         xSun = xSun + 10;
+        xCloud2 = xCloud2 - 5;
 
         txEnd();
         txSleep(50);
