@@ -1,0 +1,607 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 14346, функция: intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND),
+
+Сообщение: Возможно, окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: CMdre0, Thread: 0x23B4 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h:14346:
+
+  14344:                       double zoom /*= 0*/, double gain /*= 1*/, HWND wnd /*= txWindow()*/)
+  14345:     {
+=>14346: $1  if (wnd && wnd == txWindow() && _TX_TXWINDOW_FAILED()) return -1;
+  14347: 
+  14348: $   int time = GetTickCount();  //-V2551
+
+# 1 in intptr_t {anonymous}::TX::txPlayVideo(const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h:14498:
+
+  14496: intptr_t txPlayVideo (const char fileName[], double zoom /*= 0*/, double gain /*= 0*/, HWND wnd /*= txWindow()*/)
+  14497:     {
+=>14498: $1  return txPlayVideo (0, 0, 0, 0, fileName, zoom, gain, wnd);
+  14499:     }
+  14500: 
+
+# 2 in void {anonymous}::TX::_txCleanup() at c:\codeblocks\codeblocks\mingw\include\txlib.h:9116:
+
+   9114: 
+   9115: $   txSpeak     (NULL);
+=> 9116: $   txPlayVideo (NULL);
+   9117: 
+   9118: $   delete _txCanvas_UserDCs;
+
+# 3 in void {anonymous}::TX::_txOnCExit() at c:\codeblocks\codeblocks\mingw\include\txlib.h:8925:
+
+   8923:     OutputDebugString ("\n");
+   8924: 
+=> 8925: $5  _txCleanup();
+   8926: 
+   8927:     _TX_CALLv (Win32::_cexit, ());
+
+# 4 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:67:
+
+     65:     txTextOut (425, 85, "C++");
+     66: 
+=>   67:     txTextCursor (false);
+     68:     return 0;
+     69:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:52:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:53:26
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\3632~1\06A8~1\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2038 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:55:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:56:13
+
+Run file:	C:\3632~1\06A8~1\primer\bin\Debug\primer.exe
+Directory:	C:\3632~1\06A8~1\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x112C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:55:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:56:22
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x1358 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:56:33, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:56:52
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x13EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:56:33, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:57:14
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x244 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:56:33, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:57:34
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x1524 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:56:33, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:57:58
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x1A58 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:59:03, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:59:17
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x838 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:59:03, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 09:59:57
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13222, функция: HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x21D4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HPEN__* {anonymous}::TX::txSetColor(COLORREF, double, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13222:
+
+  13220: HPEN txSetColor (COLORREF color, double thickness /*= 1*/, HDC dc /*= txDC()*/)
+  13221:     {
+=>13222: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13223: 
+  13224: $   HPEN pen = Win32::CreatePen ((color == TX_TRANSPARENT? PS_NULL : PS_SOLID), ROUND (thickness), color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:31:
+
+     29:     //txCreateWindow (800, 600);
+     30: 
+=>   31:     txSetColor (TX_WHITE);
+     32:     txSetFillColor (TX_TRANSPARENT);
+     33:     txRectangle (10, 10, 790, 590);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 09:59:03, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 10:00:53
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 14346, функция: intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND),
+
+Сообщение: Возможно, окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: CMdre0, Thread: 0x2158 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h:14346:
+
+  14344:                       double zoom /*= 0*/, double gain /*= 1*/, HWND wnd /*= txWindow()*/)
+  14345:     {
+=>14346: $1  if (wnd && wnd == txWindow() && _TX_TXWINDOW_FAILED()) return -1;
+  14347: 
+  14348: $   int time = GetTickCount();  //-V2551
+
+# 1 in intptr_t {anonymous}::TX::txPlayVideo(const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h:14498:
+
+  14496: intptr_t txPlayVideo (const char fileName[], double zoom /*= 0*/, double gain /*= 0*/, HWND wnd /*= txWindow()*/)
+  14497:     {
+=>14498: $1  return txPlayVideo (0, 0, 0, 0, fileName, zoom, gain, wnd);
+  14499:     }
+  14500: 
+
+# 2 in void {anonymous}::TX::_txCleanup() at c:\codeblocks\codeblocks\mingw\include\txlib.h:9116:
+
+   9114: 
+   9115: $   txSpeak     (NULL);
+=> 9116: $   txPlayVideo (NULL);
+   9117: 
+   9118: $   delete _txCanvas_UserDCs;
+
+# 3 in void {anonymous}::TX::_txOnCExit() at c:\codeblocks\codeblocks\mingw\include\txlib.h:8925:
+
+   8923:     OutputDebugString ("\n");
+   8924: 
+=> 8925: $5  _txCleanup();
+   8926: 
+   8927:     _TX_CALLv (Win32::_cexit, ());
+
+# 4 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:67:
+
+     65:     txTextOut (425, 85, "C++");
+     66: 
+=>   67:     txTextCursor (false);
+     68:     return 0;
+     69:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 12 2024 10:16:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 12 2024 10:16:56
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\bin\Debug\primer.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------

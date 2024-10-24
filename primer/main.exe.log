@@ -1,0 +1,141 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\main.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13274, функция: HBRUSH__* {anonymous}::TX::txSetFillColor(COLORREF, HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005062FC (32-bit), Flags: Cmdre0, Thread: 0x19E0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HBRUSH__* {anonymous}::TX::txSetFillColor(COLORREF, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13274:
+
+  13272: HBRUSH txSetFillColor (COLORREF color, HDC dc /*= txDC()*/)
+  13273:     {
+=>13274: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  13275: 
+  13276: $   HBRUSH brush = (color == TX_TRANSPARENT)? (HBRUSH) Win32::GetStockObject (HOLLOW_BRUSH) : Win32::CreateSolidBrush (color);
+
+# 1 in int main() at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:5:
+
+      3: int main()
+      4:     {
+=>    5:     txSetFillColor (TX_WHITE);
+      6:     txCreateWindow (800, 600);
+      7: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 19 2024 10:06:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 19 2024 10:06:48
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\main.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\main.exe,
+
+ВНЕЗАПНО: Целочисленное деление на ноль.
+
+#1: Исключение EXCEPTION_INT_DIVIDE_BY_ZERO (0xC0000094) при выполнении кода по адресу 0x0042D008 в модуле C:\Шлёнкин Матвей\Мультфильм\primer\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x1E10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void drawCloud(int) at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:63:
+
+     61:     txEllipse(x+500-500,70,x+600-500,130);
+     62:     txEllipse(x+610-500,70,x+710-500,130);
+=>   63:     txEllipse(x+550-500,35,x+650-500,100);
+     64: 
+     65: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  1 2024 10:16:47, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 01 2024 10:16:59
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\main.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\Мультфильм\primer\main.exe,
+
+ВНЕЗАПНО: Целочисленное деление на ноль.
+
+#1: Исключение EXCEPTION_INT_DIVIDE_BY_ZERO (0xC0000094) при выполнении кода по адресу 0x0042D008 в модуле C:\Шлёнкин Матвей\Мультфильм\primer\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x1E10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void drawCloud(int) at C:\Шлёнкин Матвей\Мультфильм\primer\main.cpp:63:
+
+     61:     txEllipse(x+500-500,70,x+600-500,130);
+     62:     txEllipse(x+610-500,70,x+710-500,130);
+=>   63:     txEllipse(x+550-500,35,x+650-500,100);
+     64: 
+     65: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  1 2024 10:16:47, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 01 2024 10:16:59
+
+Run file:	C:\Шлёнкин Матвей\Мультфильм\primer\main.exe
+Directory:	C:\Шлёнкин Матвей\Мультфильм\primer
+
+--------------------------------------------------
